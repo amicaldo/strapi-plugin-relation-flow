@@ -1,5 +1,5 @@
-import myService from './my-service';
+import watchContentService from './watchContentService';
 
 export default {
-  myService,
+  watchContentService,
 };

@@ -1,5 +1,5 @@
-import myController from './my-controller';
+import watchContentController from './watchContentController';
 
 export default {
-  myController,
+  watchContentController,
 };

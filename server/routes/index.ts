@@ -1,10 +1,10 @@
 export default [
   {
     method: 'GET',
-    path: '/',
-    handler: 'myController.index',
+    path: '/watch-content/:contentTypeUID',
+    handler: 'watchContentController.index',
     config: {
-      policies: [],
+      policies: ['admin::isAuthenticatedAdmin'],
     },
   },
 ];
