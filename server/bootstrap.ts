@@ -11,15 +11,21 @@ export default ({ strapi }: { strapi: Strapi }) => {
     const { result, model } = event;
 
     /* Find the target object's index in the toBeWatched array */
-    const targetIndex = toBeWatched.findIndex(
-      (target) =>
-        target.contentTypeUID === model.uid &&
-        target.createdByID === result.createdBy.id
-    );
-    if (targetIndex === -1) return;
+    toBeWatched.forEach((target) => {
+      if (
+        target.contentTypeUID !== model.uid ||
+        target.createdByID !== result.createdBy.id
+      )
+        return;
 
-    /* Write the entry data to the eventStream */
-    const target = toBeWatched[targetIndex];
-    target.eventStream.write(`data: ${JSON.stringify(result)}\n\n`);
+      /* Sanitize the result object */
+      const sanitizedResult = {
+        id: result.id,
+        createdBy: result.createdBy,
+      };
+
+      /* Write the entry data to the eventStream */
+      target.eventStream.write(`data: ${JSON.stringify(sanitizedResult)}\n\n`);
+    });
   });
 };
