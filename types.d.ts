@@ -1,13 +1,13 @@
-import { Event as StrapiEvent } from '@strapi/database/lib/lifecycles';
+export type Attribute = [string, AttributeOptions];
 
-declare module '@strapi/database/lib/lifecycles' {
-  export interface Event extends StrapiEvent {
-    result: {
-      createdBy: {
-        id: number;
-      };
+export interface AttributeOptions {
+  type: string;
+  targetModel?: string; // only for relation fields
+  relationType?: string; // only for relation fields
+}
 
-      [k: string]: any;
-    };
-  }
+export interface WatchContentResult {
+  id: number;
+  mainField: string;
+  [key: string]: any;
 }

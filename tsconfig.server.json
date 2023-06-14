@@ -12,7 +12,7 @@
     // Force the JSON files in the src folder to be included
     "server/**/*.json",
 
-    "./types.d.ts"
+    "strapi.d.ts",
   ],
 
   "exclude": [
