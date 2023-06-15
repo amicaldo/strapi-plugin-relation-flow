@@ -1,5 +1,5 @@
 {
-  "name": "strapi-plugin-relation-flow",
+  "name": "@amicaldo/strapi-plugin-relation-flow",
   "version": "1.0.0",
   "description": "A plugin for Strapi - Open source Node.js Headless CMS to make your life easier when you want to create new content and instantly link it to your relation field.",
   "repository": {
