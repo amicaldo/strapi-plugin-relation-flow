@@ -8,6 +8,7 @@
     "kind": "plugin"
   },
   "dependencies": {
+    "@microsoft/fetch-event-source": "^2.0.1",
     "@strapi/design-system": "^1.6.3",
     "@strapi/helper-plugin": "^4.6.0",
     "@strapi/icons": "^1.6.3",
