@@ -9,6 +9,7 @@ import { Plus, Cross } from '@strapi/icons';
 import { useIntl } from 'react-intl';
 import getTrad from '../../utils/getTrad';
 import WaitForNewEntry from './waitForNewEntry';
+import { Link } from 'react-router-dom';
 
 export default function RelationFlow({
   fieldName,
@@ -34,11 +35,6 @@ export default function RelationFlow({
   >();
 
   const createOperationHandler = () => {
-    window.open(
-      `/content-manager/collectionType/${targetModel}/create`,
-      '_blank'
-    );
-
     setWatchContentAbortCtrl(new AbortController());
 
     setUserCreatingNewEntry(true);
@@ -54,6 +50,8 @@ export default function RelationFlow({
     selectElement.style.display = 'block';
   };
 
+  const createNewEntryURI = `/content-manager/collectionType/${targetModel}/create`;
+
   return (
     <div>
       {userCreatingNewEntry && (
@@ -68,16 +66,18 @@ export default function RelationFlow({
 
       <Flex>
         <Box style={{ padding: 2, paddingLeft: 0 }}>
-          <Button
-            startIcon={<Plus />}
-            disabled={userCreatingNewEntry}
-            onClick={createOperationHandler}
-          >
-            {formatMessage({
-              id: getTrad('edit.buttons.create'),
-              defaultMessage: 'FIXME',
-            })}
-          </Button>
+          <Link to={createNewEntryURI} target='_blank'>
+            <Button
+              startIcon={<Plus />}
+              disabled={userCreatingNewEntry}
+              onClick={createOperationHandler}
+            >
+              {formatMessage({
+                id: getTrad('edit.buttons.create'),
+                defaultMessage: 'FIXME',
+              })}
+            </Button>
+          </Link>
         </Box>
 
         <Box padding={1}>
