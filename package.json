@@ -1,12 +1,27 @@
 {
   "name": "strapi-plugin-relation-flow",
-  "version": "0.0.0",
-  "description": "This is the description of the plugin.",
+  "version": "1.0.0",
+  "description": "A plugin for Strapi - Open source Node.js Headless CMS to make your life easier when you want to create new content and instantly link it to your relation field.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amicaldo/strapi-plugin-relation-flow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amicaldo/strapi-plugin-relation-flow/issues"
+  },
+  "homepage": "https://github.com/amicaldo/strapi-plugin-relation-flow",
   "strapi": {
-    "name": "strapi-plugin-relation-flow",
-    "description": "Description of strapi-plugin-relation-flow plugin",
+    "name": "relation-flow",
+    "displayName": "Relation Flow",
+    "description": "Create content for a relation field and link it instantly.",
     "kind": "plugin"
   },
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "strapi-plugin-relation-flow",
+    "relation-flow"
+  ],
   "dependencies": {
     "@microsoft/fetch-event-source": "^2.0.1",
     "@strapi/design-system": "^1.6.3",
@@ -27,17 +42,18 @@
     "typescript": "5.0.4"
   },
   "peerDependencies": {
+    "@strapi/strapi": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.6"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "amicaldo GmbH"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer"
+      "name": "amicaldo GmbH"
     }
   ],
   "engines": {
@@ -48,5 +64,19 @@
     "develop": "tsc -p tsconfig.server.json -w",
     "build": "tsc -p tsconfig.server.json"
   },
-  "license": "MIT"
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "files": [
+    "admin",
+    "dist/server",
+    "deps.d.ts",
+    "package.json",
+    "README.md",
+    "strapi-admin.js",
+    "strapi-server.js",
+    "tsconfig.json",
+    "types.d.ts"
+  ]
 }
